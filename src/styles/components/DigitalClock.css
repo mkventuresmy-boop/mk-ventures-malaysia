@@ -1,0 +1,143 @@
+.digital-clock-section {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 2rem;
+}
+
+.clock-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.clock-header h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.clock-header svg {
+  color: var(--secondary-color);
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.clock-subtitle {
+  text-align: center;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.clocks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.clock-card {
+  background: linear-gradient(135deg, var(--bg-white) 0%, #f8fafc 100%);
+  border: 2px solid var(--border-color);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.clock-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+}
+
+.clock-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-color);
+}
+
+.clock-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.timezone-flag {
+  font-size: 2rem;
+}
+
+.timezone-name {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.clock-display {
+  font-family: 'Courier New', monospace;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  letter-spacing: 2px;
+  padding: 1.5rem 1rem;
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.05) 0%, rgba(14, 165, 233, 0.05) 100%);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.clock-date {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .digital-clock-section {
+    padding: 1.5rem 1rem;
+    margin: 2rem auto;
+  }
+  .clock-header h2 {
+    font-size: 1.5rem;
+  }
+  .clocks-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  .clock-card {
+    padding: 1.2rem;
+  }
+  .clock-display {
+    font-size: 2rem;
+    padding: 1rem;
+  }
+  .timezone-flag {
+    font-size: 1.5rem;
+  }
+  .timezone-name {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .clocks-grid {
+    grid-template-columns: 1fr;
+  }
+  .clock-display {
+    font-size: 1.8rem;
+  }
+}
